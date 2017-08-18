@@ -7,7 +7,9 @@ from django.shortcuts import render
 
 # Students views.
 def students_list(request):
-    return render(request, 'students/students_list.html', {})
+    import pdb;pdb.set_trace()
+    return HttpResponse("<aflkasdhfkjash>")
+    # return render(request, 'students/students_list.html', {})
 
 
 def students_add(request):
