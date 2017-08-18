@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- Include Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="container">
+    <!-- Start Header -->
+    <div class="row" id="header">
+        <!-- Logo -->
+        <div class="col-xs-8">
+            <h1>Сервіс Обліку Студентів</h1>
+        </div>
+        <!-- Groups Selector -->
+        <div class="col-xs-4" id="group-selector">
+            <strong>Групи:</strong>
+            <select>
+                <option value="">Всі групи</option>
+                <option value="">Група Бест</option>
+                <option value="">Група Андердог</option>
+
+            </select>
+        </div>
+
+    </div>
+    <!-- End Header -->
+    <!-- Start SubHeader -->
+    <div class="row" id="sub-header">
+        <div class="col-xs-12">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#">Студенти</a></li>
+                <li role="presentation"><a href="#">Відвідування</a></li>
+                <li role="presentation"><a href="#">Групи</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- End SubHeader -->
+    <!-- Start Main Page Content -->
+
+    <div class="row main" id="content-columns">
+        <div class="col-xs-12">
+            <h2 class="float-h2">Форма редагування студента</h2>
+        </div>
+        <div class="col-xs-12">
+            <div class="main-login main-center">
+
+
+                <!-- Start Student adding form -->
+                <form class="" method="post" action="#">
+
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label">Імя</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="name" id="name"
+                                       placeholder="Введіть імя"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">По-батькові</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope fa"
+                                                                   aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="email" id="email"
+                                       placeholder="Введіть по-батькові"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username" class="cols-sm-2 control-label">Прізвище</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="username" id="username"
+                                       placeholder="Введіть прізвище"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="number" class="cols-sm-2 control-label">Номер білету</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                                   aria-hidden="true"></i></span>
+                                <input type="number" class="form-control" name="password" id="password"
+                                       placeholder="Введіть Номер білету"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date" class="cols-sm-2 control-label">Дата народження</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                                   aria-hidden="true"></i></span>
+                                <input type="date" class="form-control" name="confirm" id="confirm"
+                                       placeholder="Введіть дату народження"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm" class="cols-sm-2 control-label">Фото</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                                   aria-hidden="true"></i></span>
+                                <input type="file" class="form-control" name="confirm" id="confirm"
+                                       placeholder="Введіть дату народження"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm" class="cols-sm-2 control-label">Група</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                                   aria-hidden="true"></i></span>
+                                <div id="group-selector-in-form">
+
+                                    <select>
+                                        <option value="">Група Бандерлоги</option>
+                                        <option value="">Група Бест</option>
+                                        <option value="">Група Андердог</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm" class="cols-sm-2 control-label">Нотатки</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                                   aria-hidden="true"></i></span>
+                                <input type="password" class="form-control" name="confirm" id="confirm"
+                                       placeholder="Введіть дату народження"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <a href="#" type="button" id="button-submit"
+                           class="btn btn-lg btn-block btn-success">Зберегти</a>
+                        <a href="#" type="button" id="button"
+                           class="btn btn-primary btn-md btn-block ">Скасувати</a>
+                    </div>
+
+                </form>
+                <!-- End Student adding form -->
+            </div>
+        </div>
+    </div>
+    <!-- End Main Page Content -->
+
+    <!-- Start Footer -->
+    <div class="row" id="footer">
+        <div class="col-xs-12">
+
+            <h1> The last Chance for me to understand the suka Django </h1>
+            &copy; 2017 Сервіс Обліку Студентів
+        </div>
+
+    </div>
+    <!-- End Footer -->
+
+</div>
+
+<!-- End Container -->
+
+<!-- Javascripts Section -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>
