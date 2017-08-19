@@ -65,9 +65,37 @@
                 </tr>
                 </thead>
                 <tbody>
+                {% for student in students %}
+                    <tr>
+                        <td>{{ forloop.counter  }}</td>
+                        <td><img src="{% static student.img %}" height="50px" width="50px"
+                                 class="img-circle"/></td>
+                        <td><a href="{% url 'students_edit' student.id %}"> {{ student.last_name }}</a></td>
+                        <td><a href="{% url 'students_edit' student.id %}"> {{ student.first_name }}</a></td>
+                        <td>{{ student.ticket }}</td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    Дія
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="/journal/{{ student.id }}">Відвідування</a></li>
+                                    <li><a href="{% url 'students_edit' student.id %} %}">Редагувати</a></li>
+                                    <li><a href="{% url 'students_delete' student.id %} %}">Видалити</a></li>
+                                </ul>
+                            </div>
+
+                        </td>
+                    </tr>
+
+                {% endfor %}
+
                 <tr>
                     <td>1</td>
-                    <td><img src="{% static "img/article14925.jpg"%}" height="50px" width="50px" class="img-circle"/></td>
+                    <td><img src="{% static "img/article14925.jpg" %}" height="50px" width="50px" class="img-circle"/>
+                    </td>
                     <td><a href="{% url 'students_edit' 1 %}"> Каменських</a></td>
                     <td><a href="{% url 'students_edit' 1 %}"> Анастасія</a></td>
                     <td>18</td>
@@ -89,7 +117,8 @@
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td><img src="{% static "img/afisha-kyiv-concert-hrystyna-solovii.jpg" %}" height="50px" width="50px" class="img-circle"/></td>
+                    <td><img src="{% static "img/afisha-kyiv-concert-hrystyna-solovii.jpg" %}" height="50px"
+                             width="50px" class="img-circle"/></td>
                     <td>Соловій</td>
                     <td>Христина</td>
                     <td>13</td>
@@ -110,7 +139,8 @@
                 </tr>
                 <tr>
                     <td>3</td>
-                    <td><img src="{% static "img/reper-potap-pokazal-foto-15-letney-davnosti_1.jpeg" %}" height="50px" width="50px" class="img-circle"/></td>
+                    <td><img src="{% static "img/reper-potap-pokazal-foto-15-letney-davnosti_1.jpeg" %}" height="50px"
+                             width="50px" class="img-circle"/></td>
                     <td>Потапенко</td>
                     <td>Олексій</td>
                     <td>77</td>
@@ -132,7 +162,8 @@
                 </tr>
                 <tr>
                     <td>4</td>
-                    <td><img src="{% static "img/alisiya_vikander.jpg" %}" height="50px" width="50px" class="img-circle"/></td>
+                    <td><img src="{% static "img/alisiya_vikander.jpg" %}" height="50px" width="50px"
+                             class="img-circle"/></td>
                     <td>Вікандер</td>
                     <td>Алісія</td>
                     <td>5</td>
@@ -154,7 +185,8 @@
                 </tr>
                 <tr>
                     <td>5</td>
-                    <td><img src="{% static "img/mila-kunis.jpg" %}" height="50px" width="50px" class="img-circle"/></td>
+                    <td><img src="{% static "img/mila-kunis.jpg" %}" height="50px" width="50px" class="img-circle"/>
+                    </td>
                     <td>Потапенко</td>
                     <td>Олексій</td>
                     <td>33</td>

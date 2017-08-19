@@ -7,9 +7,25 @@ from django.shortcuts import render
 
 # Students views.
 def students_list(request):
-    #import pdb;pdb.set_trace()
-    #return HttpResponse("<aflkasdhfkjash>")
-    return render(request, 'students/students_list.html', {})
+    students = (
+        {'id': 1,
+         'first_name': 'Марта',
+         'last_name': 'Адамчук',
+         'ticket': 21,
+         'img': 'img/marta.jpeg',
+         },
+        {'id': 2,
+         'first_name': 'Світлана',
+         'last_name': 'Сікора',
+         'ticket': 31,
+         'img': 'img/sikora.jpeg',
+         },
+    )
+
+    # import pdb;pdb.set_trace()
+    # return HttpResponse("<aflkasdhfkjash>")
+
+    return render(request, 'students/students_list.html', {'students': students})
 
 
 def students_add(request):
