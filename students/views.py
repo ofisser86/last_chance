@@ -23,7 +23,7 @@ def students_list(request):
     )
 
     # import pdb;pdb.set_trace()
-    # return HttpResponse("<aflkasdhfkjash>")
+    # return HttpResponse("Hello")
 
     return render(request, 'students/students_list.html', {'students': students})
 

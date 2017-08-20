@@ -1,64 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'students/base.html' %}
+{% load static from staticfiles %}
+{% block meta_title %}Групи{% endblock meta_title %}
+{% block title %}Список груп{% endblock title %}
+{% block content %}
 
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-
-    <!-- Include Styles -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
-</head>
-<body>
-<div class="container">
-    <!-- Start Header -->
-    <div class="row" id="header">
-        <!-- Logo -->
-        <div class="col-xs-8">
-            <h1>Сервіс Обліку Студентів</h1>
-        </div>
-        <!-- Groups Selector -->
-        <div class="col-xs-4" id="group-selector">
-            <strong>Групи:</strong>
-            <select>
-                <option value="">Всі групи</option>
-                <option value="">Група Бест</option>
-                <option value="">Група Андердог</option>
-
-            </select>
-        </div>
-
-    </div>
-    <!-- End Header -->
-    <!-- Start SubHeader -->
-    <div class="row" id="sub-header">
-        <div class="col-xs-12">
-            <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#">Студенти</a></li>
-                <li role="presentation"><a href="#">Відвідування</a></li>
-                <li role="presentation"><a href="#">Групи</a></li>
-            </ul>
-        </div>
-
-    </div>
-    <!-- End SubHeader -->
-    <!-- Start Main Page Content -->
-
-    <div class="row" id="content-columns">
-        <div class="col-xs-12" id="content-column">
-            <!-- Status Message -->
-            <div class="alert alert-warning" role="alert">Зміни скасовано</div>
-
-            <h2 class="float-h2">Групи</h2>
-            <!-- Add Group Button -->
             <a class="btn btn-primary btn-add-student" href="#">Додати групу</a>
             <!-- Start Groups Listing -->
             <table class="table table-hover table-striped">
@@ -196,28 +141,4 @@
                 </ul>
             </nav>
             <!-- End Pagination -->
-        </div>
-
-    </div>
-    <!-- End Main Page Content -->
-
-    <!-- Start Footer -->
-    <div class="row" id="footer">
-        <div class="col-xs-12">
-
-            <h1> The last Chance for me to understand the suka Django </h1>
-            &copy; 2017 Сервіс Обліку Студентів
-        </div>
-
-    </div>
-    <!-- End Footer -->
-
-</div>
-
-<!-- End Container -->
-
-<!-- Javascripts Section -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
-<script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-</body>
-</html>
+{% endblock content %}
