@@ -40,9 +40,9 @@ def students_delete(request, sid):
     return HttpResponse('<h1> Student %s deleting </h1>' % sid)
 
 
-# Students views.
+# Groups views.
 def groups_list(request):
-    return HttpResponse('<h1> Groups list </h1>')
+    return render(request, 'students/groups.html', {})
 
 
 def groups_add(request):
@@ -55,3 +55,10 @@ def groups_edit(request, gid):
 
 def groups_delete(request, gid):
     return HttpResponse('<h1> Groups deleting %s</h1>' % gid)
+
+
+# Journal views.
+
+def journal(request):
+    return render(request, 'students/journal.html', {})
+

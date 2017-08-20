@@ -64,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'studentsdb.context_processors.students_proc',
             ],
         },
     },
@@ -115,6 +116,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+# PORTAL_URL (rewrite in custom context processor)
+# PORTAL_URL = 'http://10.2.155.100:8000'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/

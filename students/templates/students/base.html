@@ -9,7 +9,7 @@
 
     <!-- Include Styles -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static "css/main.css" %}">
+    <link rel="stylesheet" href="{{ PORTAL_URL }}{% static "css/main.css" %}">
     {% block extra_css %}{% endblock extra_css %}
 </head>
 <body>
@@ -37,9 +37,12 @@
     <div class="row" id="sub-header">
         <div class="col-xs-12">
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="/">Студенти</a></li>
-                <li role="presentation"><a href="/journal">Відвідування</a></li>
-                <li role="presentation"><a href="{% url "groups_list" %}">Групи</a></li>
+            {% url "home" as home_url %}
+                {% url "groups_list" as groups_list_url %}
+            {% url "journal" as journal_url %}
+                <li role="presentation" {% if request.path == home_url %} class="active" {% endif %}><a href="{% url "home" %}">Студенти</a></li>
+                <li role="presentation" {% if request.path == groups_list_url %} class="active" {% endif %}><a href="{% url "groups_list" %}">Групи</a></li>
+                <li role="presentation" {% if request.path == journal_url %} class="active" {% endif %}><a href="{% url "journal" %}">Відвідування</a></li>
             </ul>
         </div>
 
