@@ -4,24 +4,13 @@ from __future__ import unicode_literals
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from studentsdb.settings import BASE_DIR
+from ..models import Student
+
 
 # Students views.
 def students_list(request):
-    students = (
-        {'id': 1,
-         'first_name': 'Марта',
-         'last_name': 'Адамчук',
-         'ticket': 21,
-         'img': 'img/marta.jpeg',
-         },
-        {'id': 2,
-         'first_name': 'Світлана',
-         'last_name': 'Сікора',
-         'ticket': 31,
-         'img': 'img/sikora.jpeg',
-         },
-    )
-
+    students = Student.objects.all()
     # import pdb;pdb.set_trace()
     # return HttpResponse("Hello")
 
