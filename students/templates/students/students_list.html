@@ -10,7 +10,9 @@
         <tr>
             <th>№</th>
             <th>Фото</th>
-            <th><a href="{% url 'home'%}?order_by=last_name">Прізвище</a></th>
+            <th><a href="{% url 'home'%}?order_by=last_name">Прізвище
+            {% if request.GET.order_by == 'last_name' %}&uarr;{% endif %}
+            </a></th>
             <th><a href="{% url 'home'%}?order_by=first_name">Імя</a></th>
             <th><a href="{% url 'home'%}?order_by=ticket">№Білету</a></th>
             <th>Дії</th>
