@@ -4,16 +4,22 @@ from __future__ import unicode_literals
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from studentsdb.settings import BASE_DIR
 from ..models import Student
 
 
 # Students views.
 def students_list(request):
-    students = Student.objects.all()
+    students = Student.objects.all().order_by('last_name')
 
     # try to order students list
     order_by = request.GET.get('order_by', '')
+
+    # order_by for students count
+    if order_by == 'count':
+        students = students.order_by('id')
+        if request.GET.get('reverse', '') == '1':
+            students = students.reverse()
+
     if order_by in ('last_name', 'first_name', 'ticket'):
         students = students.order_by(order_by)
         if request.GET.get('reverse', '') == '1':

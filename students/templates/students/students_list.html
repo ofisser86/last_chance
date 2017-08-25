@@ -3,32 +3,65 @@
 {% block meta_title %}Студенти{% endblock meta_title %}
 {% block title %}База студентів{% endblock title %}
 {% block content %}
+    <h1></h1>
     <a class="btn btn-primary btn-add-student" href="{% url 'students_add' %}">Додати студента</a>
     <!-- Start Students Listing -->
     <table class="table table-hover table-striped">
+    {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
+        {% url "home" as home_url %}
         <thead>
         <tr>
-            <th>№</th>
+            <th><a href="{% url 'home' %}?order_by=count{% if order_by == 'count' and reverse != '1' %}&amp;reverse=1{% endif %}">№
+                    {% if order_by == 'count' and reverse != '1' %}&uarr;
+                        {% elif order_by == 'count' and reverse == '1' %}&darr;
+
+                    {% endif %}
+                </a>
+                </th>
             <th>Фото</th>
-            <th><a href="{% url 'home'%}?order_by=last_name">Прізвище
-            {% if request.GET.order_by == 'last_name' %}&uarr;{% endif %}
-            </a></th>
-            <th><a href="{% url 'home'%}?order_by=first_name">Імя</a></th>
-            <th><a href="{% url 'home'%}?order_by=ticket">№Білету</a></th>
+            <th>
+                <a href="{% url 'home' %}?order_by=last_name{% if request.get_full_path == '/' or order_by == 'last_name' and reverse != '1' %}&amp;reverse=1{% endif %}">Прізвище
+                   {% if request.get_full_path == '/' or order_by == 'last_name' and reverse != '1' %}&uarr;
+                        {% elif order_by == 'last_name' and reverse == '1' %}&darr;
+
+                    {% endif %}
+                </a></th>
+            <th>
+                <a href="{% url 'home' %}?order_by=first_name{% if order_by == 'first_name' and reverse != '1' %}&amp;reverse=1{% endif %}">Імя
+                    {% if order_by == 'first_name' and reverse != '1' %}&uarr;
+                        {% elif order_by == 'first_name' and reverse == '1' %}&darr;
+                    {% endif %}
+                </a></th>
+            <th>
+                <a href="{% url 'home' %}?order_by=ticket{% if order_by == 'ticket' and reverse != '1' %}&amp;reverse=1{% endif %}">№Білету
+                    {% if order_by == 'ticket' and reverse != '1' %}&uarr;
+                        {% elif order_by == 'ticket' and reverse == '1' %}&darr;
+                    {% endif %}
+                </a></th>
             <th>Дії</th>
         </tr>
         </thead>
+    {% endwith %}
         <tbody>
         {% for student in students %}
             <tr>
-                <td>{{ forloop.counter }}</td>
+                <td>
+                {% if request.get_full_path  == home_url and request.GET.order_by != 'count' and request.GET.reverse != '1' %}
+
+                {{ forloop.counter }}
+                    {% elif request.GET.order_by == 'count' and request.GET.reverse == '1' %}
+                    {{ forloop.revcounter }}
+                    {% elif  request.GET.order_by == 'count' and request.GET.reverse != '1' %}
+                    {{ forloop.counter }}
+                    {% endif %}
+                </td>
                 {% if student.photo %}
-                <td><img src="{{ student.photo.url }}" height="50px" width="50px"
-                         class="img-circle"/></td>
+                    <td><img src="{{ student.photo.url }}" height="50px" width="50px"
+                             class="img-circle"/></td>
 
                 {% else %}
-                <td><img src="{% static "img/default-user.png" %}" height="50px" width="50px"
-                         class="img-circle"/></td>
+                    <td><img src="{% static "img/default-user.png" %}" height="50px" width="50px"
+                             class="img-circle"/></td>
 
                 {% endif %}
 
@@ -59,6 +92,6 @@
     </table>
     <!-- End Students Listing -->
     <!-- Pagination -->
-   {% include 'students/pagination.html' %}
+    {% include 'students/pagination.html' %}
     <!-- End Pagination -->
 {% endblock content %}
