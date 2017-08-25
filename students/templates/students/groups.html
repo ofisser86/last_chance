@@ -4,7 +4,7 @@
 {% block title %}Список груп{% endblock title %}
 {% block content %}
 
-            <a class="btn btn-primary btn-add-student" href="#">Додати групу</a>
+            <a class="btn btn-primary btn-add-group" href="#">Додати групу</a>
             <!-- Start Groups Listing -->
             <table class="table table-hover table-striped">
                 <thead>
@@ -16,10 +16,11 @@
                 </tr>
                 </thead>
                 <tbody>
+                {% for group in groups %}
                 <tr>
-                    <td>1</td>
-                    <td>Бандерлоги</td>
-                    <td>Анастасія</td>
+                    <td>{{ forloop.counter }}</td>
+                    <td><a href="{% url 'groups_edit' group.id %}">{{ group.title }}</a></td>
+                    <td><a href="{% url 'groups_edit' group.id %}">{{ group.leader.last_name }}</a></td>
                     <td>
                         <div class="dropdown">
                             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
@@ -28,94 +29,14 @@
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Відвідування</a></li>
-                                <li><a href="#">Редагувати</a></li>
-                                <li><a href="#">Видалити</a></li>
+                                <li><a href="{% url 'groups_edit' group.id %}">Редагувати</a></li>
+                                <li><a href="{% url 'groups_delete' group.id %}">Видалити</a></li>
                             </ul>
                         </div>
 
                     </td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Бандерлоги</td>
-                    <td>Анастасія</td>
-                    <td>
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                Дія
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Відвідування</a></li>
-                                <li><a href="#">Редагувати</a></li>
-                                <li><a href="#">Видалити</a></li>
-                            </ul>
-                        </div>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Бандерлоги</td>
-                    <td>Анастасія</td>
-                    <td>
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                Дія
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Відвідування</a></li>
-                                <li><a href="#">Редагувати</a></li>
-                                <li><a href="#">Видалити</a></li>
-                            </ul>
-                        </div>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Бандерлоги</td>
-                    <td>Анастасія</td>
-                    <td>
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                Дія
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Відвідування</a></li>
-                                <li><a href="#">Редагувати</a></li>
-                                <li><a href="#">Видалити</a></li>
-                            </ul>
-                        </div>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Бандерлоги</td>
-                    <td>Анастасія</td>
-                    <td>
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                Дія
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Відвідування</a></li>
-                                <li><a href="#">Редагувати</a></li>
-                                <li><a href="#">Видалити</a></li>
-                            </ul>
-                        </div>
-
-                    </td>
-                </tr>
+                {% endfor %}
                 </tbody>
 
             </table>
