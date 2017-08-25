@@ -45,15 +45,15 @@
         <tbody>
         {% for student in students %}
             <tr>
-                <td>
-                {% if request.get_full_path  == home_url and request.GET.order_by != 'count' and request.GET.reverse != '1' %}
-
-                {{ forloop.counter }}
-                    {% elif request.GET.order_by == 'count' and request.GET.reverse == '1' %}
-                    {{ forloop.revcounter }}
-                    {% elif  request.GET.order_by == 'count' and request.GET.reverse != '1' %}
-                    {{ forloop.counter }}
-                    {% endif %}
+                <td>{{ forloop.counter }}
+{#                {% if request.get_full_path  == home_url and request.GET.order_by != 'count' and request.GET.reverse != '1' %}#}
+{##}
+{#                {{ forloop.counter }}#}
+{#                    {% elif request.GET.order_by == 'count' and request.GET.reverse == '1' %}#}
+{#                    {{ forloop.revcounter }}#}
+{#                    {% elif  request.GET.order_by == 'count' and request.GET.reverse != '1' %}#}
+{#                    {{ forloop.counter }}#}
+{#                    {% endif %}#}
                 </td>
                 {% if student.photo %}
                     <td><img src="{{ student.photo.url }}" height="50px" width="50px"
