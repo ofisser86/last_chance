@@ -5,10 +5,11 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
-from ..models import Student
+from ..models.students import Student
 
 
 # Students views.
+
 def students_list(request):
     students = Student.objects.all().order_by('last_name')
 
