@@ -11,7 +11,10 @@ from ..models.exams import Exam
 # Exams views.
 
 def exams_list(request):
-    return render(request, 'students/exams.html', {})
+    exams = Exam.objects.all()
+    for i in exams:
+        print(i)
+    return render(request, 'students/exams.html', {'exams': exams})
 
 
 def exams_add(request):
