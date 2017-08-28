@@ -27,3 +27,4 @@ def exams_edit(request, eid):
 
 def exams_delete(request, eid):
     return HttpResponse('<h1> Exam %s deleting </h1>' % eid)
+

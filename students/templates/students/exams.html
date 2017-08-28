@@ -46,8 +46,8 @@
         {% for exam in exams %}
             <tr>
                 <td>{{ forloop.counter }}</td>
-                <td> {{ exam.subject }}</td>>
-                <td><a href="{% url 'exams_edit' exam.id %}"> {{ exam.exam_in_group }}</a></td>
+                <td> {{ exam.subject }}</td>
+                <td><a href="{% url 'exams_edit' exam.id %}"> {% for group in exam.exam_in_group.all %}{{ group }}<br/>{% endfor %}</a></td>
                 <td><a href="{% url 'exams_edit' exam.id %}"> {{ exam.teacher }}</a></td>
                 <td>{{ exam.date_time_exam }}</td>
                 <td>
@@ -72,7 +72,7 @@
         </tbody>
 
     </table>
-    <!-- End Students Listing -->
+    <!-- End Exams Listing -->
     <!-- Pagination -->
     {% include 'students/pagination.html' %}
     <!-- End Pagination -->
