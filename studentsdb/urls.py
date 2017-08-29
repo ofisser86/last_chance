@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from students.views import students, groups, journal, exams
+from students.views import students, groups, journal, exams, demo
 from settings import MEDIA_ROOT, DEBUG
 from django.conf import settings
 from django.conf.urls.static import static
@@ -40,6 +40,9 @@ urlpatterns = [
     url(r'^exams/add$', exams.exams_add, name='exams_add'),
     url(r'^exams/(?P<eid>\d+)/edit/$', exams.exams_edit, name='exams_edit'),
     url(r'^exams/(?P<eid>\d+)/delete/$', exams.exams_delete, name='exams_delete'),
+
+    # Demo urls
+    url(r'^demo/$', demo.demo, name='demo'),
 
     # Admin url
     url(r'^admin/', admin.site.urls),

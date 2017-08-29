@@ -12,8 +12,7 @@ from ..models.exams import Exam
 
 def exams_list(request):
     exams = Exam.objects.all()
-    for i in exams:
-        print(i)
+
     return render(request, 'students/exams.html', {'exams': exams})
 
 

@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 from ..models.students import Student
+from ..models.groups import Group
 
 
 # Students views.
@@ -48,7 +50,36 @@ def students_list(request):
 
 
 def students_add(request):
-    return HttpResponse('<h1> Student Add Form</h1>')
+    groups = Group.objects.all().order_by('title')
+    # was form posted?
+    if request.method == "POST":
+        # was form add button clicked?
+        if request.POST.get('add_button') is not None:
+            # TODO: validate input from user
+            errors = {}
+
+            if not errors:
+                # create student object
+                student = Student(
+                    first_name=request.POST['first_name'],
+                    last_name=request.POST['last_name'],
+                    middle_name=request.POST['middle_name'],
+                    birthday=request.POST['birthday'],
+                    student_group=Group.objects.get(pk=request.POST['student_group']),
+                    photo=request.FILES['photo'],
+                )
+                student.save()
+                # redirect user to students list
+                return HttpResponseRedirect(reverse('home'))
+            # render form with errors and previous user input
+            else:
+                return render(request, 'students/students_add.html', {'groups': groups, 'errors': errors})
+        elif request.POST.get('cancel_button') is not None:
+            # redirect to home page on cancel button
+            return HttpResponseRedirect(reverse('home'))
+    else:
+        # initial form render
+        return render(request, 'students/students_add.html', {'groups': groups})
 
 
 def students_edit(request, sid):
