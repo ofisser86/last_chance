@@ -5,6 +5,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.contrib import messages
+
 from datetime import datetime
 
 from PIL import Image
@@ -120,11 +122,10 @@ def students_add(request):
             else:
                 if photo_format.format not in valid_image_extention:
                     errors['photo'] = u'Невірний формат файлу'
-                elif photo.size > 2*1024*1024:
+                elif photo.size > 2 * 1024 * 1024:
                     errors['photo'] = u'Фото не більше 2мб'
                 else:
                     data['photo'] = photo
-
 
             # save student
             if not errors:
@@ -132,31 +133,33 @@ def students_add(request):
                 student.save()
 
                 # redirect to students list
-                return HttpResponseRedirect(reverse('home'))
+                return HttpResponseRedirect(u'%s?status_message=Студента %s %s успішно додано!' % (
+                    reverse('home'), student.first_name, student.last_name))
             else:
                 # render form with errors and previous user input
+                messages.error(request, u'Будь-ласка, виправте наступні помилки')
                 return render(request, 'students/students_add.html', {'groups': groups, 'errors': errors})
 
-            # if not errors:
-            #     # create student object
-            #     student = Student(
-            #         first_name=request.POST['first_name'],
-            #         last_name=request.POST['last_name'],
-            #         middle_name=request.POST['middle_name'],
-            #         birthday=request.POST['birthday'],
-            #         ticket=request.POST['ticket'],
-            #         student_group=Group.objects.get(pk=request.POST['student_group']),
-            #         photo=request.FILES['photo'],
-            #     )
-            #     student.save()
-            #     # redirect user to students list
-            #     return HttpResponseRedirect(reverse('home'))
-            # # render form with errors and previous user input
-            # else:
-            #     return render(request, 'students/students_add.html', {'groups': groups, 'errors': errors})
+                # if not errors:
+                #     # create student object
+                #     student = Student(
+                #         first_name=request.POST['first_name'],
+                #         last_name=request.POST['last_name'],
+                #         middle_name=request.POST['middle_name'],
+                #         birthday=request.POST['birthday'],
+                #         ticket=request.POST['ticket'],
+                #         student_group=Group.objects.get(pk=request.POST['student_group']),
+                #         photo=request.FILES['photo'],
+                #     )
+                #     student.save()
+                #     # redirect user to students list
+                #     return HttpResponseRedirect(reverse('home'))
+                # # render form with errors and previous user input
+                # else:
+                #     return render(request, 'students/students_add.html', {'groups': groups, 'errors': errors})
         elif request.POST.get('cancel_button') is not None:
             # redirect to home page on cancel button
-            return HttpResponseRedirect(reverse('home'))
+            return HttpResponseRedirect(u'%s?status_message=Додавання студетна скасовано!' % reverse('home'))
     else:
         # initial form render
         return render(request, 'students/students_add.html', {'groups': groups})
