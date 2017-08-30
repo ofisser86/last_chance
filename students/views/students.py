@@ -65,6 +65,7 @@ def students_add(request):
                     last_name=request.POST['last_name'],
                     middle_name=request.POST['middle_name'],
                     birthday=request.POST['birthday'],
+                    ticket=requestPOST['ticket'],
                     student_group=Group.objects.get(pk=request.POST['student_group']),
                     photo=request.FILES['photo'],
                 )

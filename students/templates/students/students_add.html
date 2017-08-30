@@ -3,7 +3,7 @@
 {% block meta_title %}Додати студента{% endblock meta_title %}
 {% block title %}Додати студента{% endblock title %}
 {% block content %}
-    <form action="{% url 'students_add' %}" method="post" enctype="multipart/form-data">
+    <form action="{% url 'students_add' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
         <div>
             <label for="first_name">Імя</label>
             <div>
