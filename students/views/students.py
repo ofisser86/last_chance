@@ -95,7 +95,7 @@ def students_add(request):
                 else:
                     data['birthday'] = birthday
 
-            student_group = request.POST.get('students_group', '').strip()
+            student_group = request.POST.get('student_group', '').strip()
             if not student_group:
                 errors['student_group'] = u'Оберіть групу для студента'
             else:
@@ -114,13 +114,13 @@ def students_add(request):
             ]
 
             try:
-                photo = Image.open(photo)
+                photo_format = Image.open(photo)
             except Exception:
                 errors['photo'] = u'Завантажте коректне фото'
             else:
-                if photo.format not in valid_image_extention:
+                if photo_format.format not in valid_image_extention:
                     errors['photo'] = u'Невірний формат файлу'
-                elif photo.size >= 2*1024*1024:
+                elif photo.size > 2*1024*1024:
                     errors['photo'] = u'Фото не більше 2мб'
                 else:
                     data['photo'] = photo
