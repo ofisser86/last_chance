@@ -131,3 +131,10 @@ span.input-group-addon i {
 #button-submit{
     background-color: orangered;
 }
+
+/* Form Styles */
+textarea,
+select,
+input {
+    max-width: 300px;
+    }
