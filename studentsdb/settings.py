@@ -124,5 +124,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 
 ADMIN_EMAIL = 'reworkmind@gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
