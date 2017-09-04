@@ -35,7 +35,7 @@ def contact_admin(request):
             else:
                 message = u'Повідомлення успішно надіслане!'
         # redirect to same contact page with success message
-        return HttpResponseRedirect(u'%s?status_message=%s' % (reverse('contact_admin'), message))
+            return HttpResponseRedirect(u'%s?status_message=%s' % (reverse('contact_admin'), message))
     # if there was not POST render blank form
     else:
         form = ContactForm()
