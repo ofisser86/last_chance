@@ -1,5 +1,6 @@
 {% extends 'students/base.html' %}
 {% load static from staticfiles %}
+{% load crispy_forms_tags %}
 {% block meta_title %}Зв’язок із Адміністратором{% endblock meta_title %}
 {% block title %}Зв’язок із Адміністратором{% endblock title %}
 {% block content %}
@@ -11,13 +12,16 @@
         {% endif %}
         {{ block.super }}
 
-
-<form action="{% url 'contact_admin' %}" method="post">
-{% csrf_token %}
-
-{{ form.as_p }}
-
-<input type="submit" value="Надіслати" name="send_button">
-</form>
+    <!-- Crispy form-->
+    {% crispy form %}
+<!-- End Crispy form-->
+    <!-- Standard Django form without styles-->
+{#<form action="{% url 'contact_admin' %}" method="post">#}
+{#{% csrf_token %}#}
+{##}
+{#{{ form.as_p }}#}
+{##}
+{#<input type="submit" value="Надіслати" name="send_button">#}
+{#</form>#}
 
 {% endblock content %}
