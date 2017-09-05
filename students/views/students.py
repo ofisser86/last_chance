@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.contrib import messages
-from django.views.generic import UpdateView
+from django.views.generic import UpdateView, DeleteView
 from django.forms import ModelForm
 
 from datetime import datetime
@@ -67,7 +67,12 @@ class StudentUpdateView(UpdateView):
             return super(StudentUpdateView, self).post(request, *args, **kwargs)
 
 
+class StudentDeleteView(DeleteView):
+    model = Student
+    template_name = 'students/student_confirm_delete.html'
 
+    def get_success_url(self):
+        return u'%s?status_message=Студента успішно видалено!' % reverse('home')
 
 # Students views.
 
