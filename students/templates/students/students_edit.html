@@ -1,5 +1,6 @@
 {% extends 'students/base.html' %}
 {% load static from staticfiles %}
+{% load crispy_forms_tags %}
 {% block meta_title %}Редагувати студента{% endblock meta_title %}
 {% block title %}Редагувати студента{% endblock title %}
 {% block content %}
@@ -14,13 +15,15 @@
     {% endif %}
 
     <!-- End status Message -->
-    <form action="{% url 'students_edit' object.id %}" method="post" enctype="multipart/form-data"
-          class="form-horizontal">
-        {% csrf_token %}
 
-        {{ form.as_p }}
-        <input type="submit" value="Додати" name="add_button" class="btn btn-primary">
-        <button type="submit" name="cancel_button" class="btn btn-link">Скасувати</button>
-    </form>
+    {% crispy form %}
+{#    <form action="{% url 'students_edit' object.id %}" method="post" enctype="multipart/form-data"#}
+{#          class="form-horizontal">#}
+{#        {% csrf_token %}#}
+{##}
+{#        {{ form.as_p }}#}
+{#        <input type="submit" value="Додати" name="add_button" class="btn btn-primary">#}
+{#        <button type="submit" name="cancel_button" class="btn btn-link">Скасувати</button>#}
+{#    </form>#}
 
 {% endblock content %}
