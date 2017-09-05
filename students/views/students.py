@@ -6,13 +6,32 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.contrib import messages
+from django.views.generic import UpdateView
 
 from datetime import datetime
 
 from PIL import Image
 
+
 from ..models.students import Student
 from ..models.groups import Group
+
+
+class StudentUpdateView(UpdateView):
+    model = Student
+    template_name = 'students/students_edit.html'
+    fields = '__all__'
+
+    def get_success_url(self):
+        return u'%s?status_message=Студента успішно збережено!' % reverse('home')
+
+    def post(self, request, *args, **kwargs):
+        if request.POST.get('cancel_button'):
+            return HttpResponseRedirect(u'%s?status_message=Редагування студента відмінено!' % reverse('home'))
+        else:
+            return super(StudentUpdateView, self).post(request, *args, **kwargs)
+
+
 
 
 # Students views.
