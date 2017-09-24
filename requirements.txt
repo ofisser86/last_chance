@@ -2,3 +2,4 @@ Django
 Pillow
 MySQL-python
 django-crispy-forms
+django-contact-form

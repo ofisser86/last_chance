@@ -64,11 +64,43 @@
     }
 },
 {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+        "app_label": "students",
+        "model": "exam"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+        "app_label": "students",
+        "model": "monthjournal"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "fv17vgz3yhvc46zqs90k30ocbzd8v06h",
+    "fields": {
+        "session_data": "ZWRiOTc2ZmIzOGQ1OTNmNmZkZDBmYmUxMDkwYWIyYmM2ZTZjOWE1MDp7Il9hdXRoX3VzZXJfaGFzaCI6IjA3YzJhYTVlNjdjNTk2NDE4NTY4MDNlOWUwZGNhY2Q5YzM2MmYxMWYiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+        "expire_date": "2017-09-19T12:12:54.538Z"
+    }
+},
+{
     "model": "sessions.session",
     "pk": "hs4zje4ipjxy3eclx8t9sxuwhqgds0ay",
     "fields": {
         "session_data": "ZWRiOTc2ZmIzOGQ1OTNmNmZkZDBmYmUxMDkwYWIyYmM2ZTZjOWE1MDp7Il9hdXRoX3VzZXJfaGFzaCI6IjA3YzJhYTVlNjdjNTk2NDE4NTY4MDNlOWUwZGNhY2Q5YzM2MmYxMWYiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
         "expire_date": "2017-09-04T11:38:54.916Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "zejhwidkbj3qphoc9p5mc4yz6eyc3icr",
+    "fields": {
+        "session_data": "ZWRiOTc2ZmIzOGQ1OTNmNmZkZDBmYmUxMDkwYWIyYmM2ZTZjOWE1MDp7Il9hdXRoX3VzZXJfaGFzaCI6IjA3YzJhYTVlNjdjNTk2NDE4NTY4MDNlOWUwZGNhY2Q5YzM2MmYxMWYiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+        "expire_date": "2017-09-25T15:56:20.339Z"
     }
 },
 {
@@ -165,7 +197,7 @@
         "birthday": "1986-05-29",
         "photo": "default-user-200.png",
         "ticket": "21",
-        "student_group": null,
+        "student_group": 4,
         "notes": ""
     }
 },
@@ -226,6 +258,34 @@
     }
 },
 {
+    "model": "students.student",
+    "pk": 13,
+    "fields": {
+        "first_name": "\u0410\u043d\u0434\u0440\u0456\u0439",
+        "last_name": "\u0425\u043b\u0438\u0432\u043d\u044e\u043a",
+        "middle_name": "",
+        "birthday": "1981-10-31",
+        "photo": "hlyvnuk.jpg",
+        "ticket": "",
+        "student_group": 3,
+        "notes": ""
+    }
+},
+{
+    "model": "students.student",
+    "pk": 14,
+    "fields": {
+        "first_name": "\u0412\u0430\u043b\u0435\u0440\u0456\u0439",
+        "last_name": "\u0425\u0430\u0440\u0447\u0438\u0448\u0438\u043d",
+        "middle_name": "",
+        "birthday": "1981-10-31",
+        "photo": "valera.jpg",
+        "ticket": "88",
+        "student_group": 3,
+        "notes": ""
+    }
+},
+{
     "model": "students.group",
     "pk": 1,
     "fields": {
@@ -239,7 +299,7 @@
     "pk": 2,
     "fields": {
         "title": "\u0410\u043a\u0442\u043e\u0440\u0438",
-        "leader": null,
+        "leader": 5,
         "notes": ""
     }
 },
@@ -248,7 +308,7 @@
     "pk": 3,
     "fields": {
         "title": "\u0420\u043e\u043a \u0432\u0438\u043a\u043e\u043d\u0430\u0432\u0446\u0456",
-        "leader": null,
+        "leader": 14,
         "notes": ""
     }
 },
@@ -268,6 +328,20 @@
         "title": "Developer",
         "leader": 12,
         "notes": ""
+    }
+},
+{
+    "model": "students.exam",
+    "pk": 1,
+    "fields": {
+        "subject": "\u041b\u043e\u0433\u0456\u043a\u0430",
+        "date_time_exam": "2017-08-27",
+        "teacher": "\u0411\u0430\u043d\u0434\u0443\u0440\u0430",
+        "exam_in_group": [
+            1,
+            2,
+            4
+        ]
     }
 },
 {
@@ -487,11 +561,65 @@
     }
 },
 {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can add \u0406\u0441\u043f\u0438\u0442",
+        "content_type": 9,
+        "codename": "add_exam"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can change \u0406\u0441\u043f\u0438\u0442",
+        "content_type": 9,
+        "codename": "change_exam"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can delete \u0406\u0441\u043f\u0438\u0442",
+        "content_type": 9,
+        "codename": "delete_exam"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can add \u041c\u0456\u0441\u044f\u0447\u043d\u0438\u0439 \u0436\u0443\u0440\u043d\u0430\u043b",
+        "content_type": 10,
+        "codename": "add_monthjournal"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can change \u041c\u0456\u0441\u044f\u0447\u043d\u0438\u0439 \u0436\u0443\u0440\u043d\u0430\u043b",
+        "content_type": 10,
+        "codename": "change_monthjournal"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can delete \u041c\u0456\u0441\u044f\u0447\u043d\u0438\u0439 \u0436\u0443\u0440\u043d\u0430\u043b",
+        "content_type": 10,
+        "codename": "delete_monthjournal"
+    }
+},
+{
     "model": "auth.user",
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$36000$ScizToQx89KH$wq6s7+kmFpvcHNrbFJArWkCtTWkRB2g1tDWkSJ5CKSA=",
-        "last_login": "2017-08-21T11:38:54.769Z",
+        "last_login": "2017-09-11T15:56:20.322Z",
         "is_superuser": true,
         "username": "didi",
         "first_name": "",
@@ -827,6 +955,175 @@
         "object_repr": "Dima K",
         "action_flag": 2,
         "change_message": "[{\"changed\": {\"fields\": [\"middle_name\", \"student_group\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2017-08-27T11:42:21.709Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "1",
+        "object_repr": "\u041b\u043e\u0433\u0456\u043a\u0430",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2017-08-27T11:43:17.536Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "3",
+        "object_repr": "\u0420\u043e\u043a \u0432\u0438\u043a\u043e\u043d\u0430\u0432\u0446\u0456 (\u0421\u0432\u0456\u0442\u043b\u0430\u043d\u0430 \u0421\u0456\u043a\u043e\u0440\u0430)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"leader\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2017-08-27T12:17:03.383Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "1",
+        "object_repr": "\u041b\u043e\u0433\u0456\u043a\u0430",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2017-08-28T12:00:46.393Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "1",
+        "object_repr": "\u041b\u043e\u0433\u0456\u043a\u0430",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2017-09-05T12:20:49.906Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "2",
+        "object_repr": "\u0410\u043a\u0442\u043e\u0440\u0438 (\u0410\u043b\u0456\u0441\u0456\u044f \u0412\u0456\u043a\u0430\u043d\u0434\u0435\u0440)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"leader\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2017-09-05T12:20:49.933Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "3",
+        "object_repr": "\u0420\u043e\u043a \u0432\u0438\u043a\u043e\u043d\u0430\u0432\u0446\u0456 (\u0412\u0430\u043b\u0435\u0440\u0456\u0439 \u0425\u0430\u0440\u0447\u0438\u0448\u0438\u043d)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"leader\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2017-09-05T12:38:56.050Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "16",
+        "object_repr": "Dima K",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2017-09-05T12:38:56.064Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "15",
+        "object_repr": "Dima K",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2017-09-05T12:39:12.213Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "17",
+        "object_repr": "Dima K",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2017-09-05T13:09:17.414Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "12",
+        "object_repr": "Dima K",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"student_group\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2017-09-05T13:10:53.936Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "5",
+        "object_repr": "Developer (Dima K)",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2017-09-05T13:14:33.043Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "8",
+        "object_repr": "\u041c\u0430\u0440\u0442\u0430 \u0410\u0434\u0430\u043c\u0447\u0443\u043a",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"student_group\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+        "action_time": "2017-09-05T13:15:19.883Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "12",
+        "object_repr": "Dima K",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"student_group\"]}}]"
     }
 }
 ]
