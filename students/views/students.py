@@ -20,6 +20,7 @@ from PIL import Image
 
 from ..models.students import Student
 from ..models.groups import Group
+from ..util import paginate
 
 
 class StudentUpdateForm(ModelForm):
@@ -74,8 +75,8 @@ class StudentDeleteView(DeleteView):
     def get_success_url(self):
         return u'%s?status_message=Студента успішно видалено!' % reverse('home')
 
-# Students views.
 
+# Students views.
 def students_list(request):
     students = Student.objects.all().order_by('last_name')
 
@@ -94,23 +95,25 @@ def students_list(request):
             students = students.reverse()
 
     # paginate students
-    paginator = Paginator(students, 5)
-    page = request.GET.get('page')
-
-    try:
-        students = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        students = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver
-        # last page of results.
-        students = paginator.page(paginator.num_pages)
+    # paginator = Paginator(students, 5)
+    # page = request.GET.get('page')
+    #
+    # try:
+    #     students = paginator.page(page)
+    # except PageNotAnInteger:
+    #     # If page is not an integer, deliver first page.
+    #     students = paginator.page(1)
+    # except EmptyPage:
+    #     # If page is out of range (e.g. 9999), deliver
+    #     # last page of results.
+    #     students = paginator.page(paginator.num_pages)
 
     # import pdb;pdb.set_trace()
     # return HttpResponse("Hello")
 
-    return render(request, 'students/students_list.html', {'students': students})
+    context = paginate(students, 5, request, {}, var_name='students')
+
+    return render(request, 'students/students_list.html', context)
 
 
 def students_add(request):

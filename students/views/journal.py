@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from datetime import datetime, date
 from calendar import monthrange, weekday, day_abbr
-from dateutil import relativedelta
+from dateutil.relativedelta import relativedelta
 
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -24,7 +24,7 @@ class JournalView(TemplateView):
 
         # check if we need to display some specific month
         if self.request.GET.get('month'):
-            month = datetime.strp_time(self.request.GET['month'], '%Y-%m-%d').date()
+            month = datetime.strptime(self.request.GET['month'], '%Y-%m-%d').date()
         else:
             today = datetime.today()
             month = date(today.year, today.month, 1)
@@ -45,10 +45,11 @@ class JournalView(TemplateView):
         # journal table header elements
         myear, mmonth = month.year, month.month
 
-        number_of_days = monthrange(myear, month)[1]
+        number_of_days = monthrange(myear, mmonth)[1]
+
         # create headers with List Comprehensions
         context['month_header'] = [{'day': d,
-                                    'verbose': day_abbr[weekday(myear, month, d)][:2]}
+                                    'verbose': day_abbr[weekday(myear, mmonth, d)][:2]}
                                    for d in range(1, number_of_days+1)]
 
         # context['month_header'] = [
