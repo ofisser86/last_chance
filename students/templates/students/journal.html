@@ -4,228 +4,88 @@
 {% block title %}Журнал відвідування{% endblock title %}
 {% block content %}
             <!-- Start Journal Listing -->
-            <table class="table table-hover table-striped">
-                <thead>
-                <tr>
-                    <th>№</th>
-                    <th>Студент</th>
-                    <th>Ср</th>
-                    <th>Чт</th>
-                    <th>Пт</th>
-                    <th>Сб</th>
-                    <th>Нд</th>
-                    <th>Пн</th>
-                    <th>Вт</th>
-                    <th>Ср</th>
-                    <th>Чт</th>
-                    <th>Пт</th>
-                    <th>Сб</th>
-                    <th>Нд</th>
-                    <th>Пн</th>
-                    <th>Вт</th>
-                    <th>Ср</th>
-                    <th>Чт</th>
-                    <th>Пт</th>
-                    <th>Сб</th>
-                    <th>Нд</th>
-                    <th>Пн</th>
-                    <th>Вт</th>
-                    <th>Ср</th>
-                    <th>Чт</th>
-                    <th>Пт</th>
-                    <th>Сб</th>
-                    <th>Нд</th>
-                    <th>Пн</th>
-                    <th>Вт</th>
-                    <th>Ср</th>
-                    <th>Чт</th>
-                    <th>Пт</th>
-                </tr>
-                </thead>
-                <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Анастасія Каменських</td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
+ {% if not students %}
 
-                        </tr>
-                <tr>
-                            <td>2</td>
-                            <td>Міла Куніс</td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
+<div class="alert alert-warning">
+    Поки немає жодного студента в базі. Будь-ласка,
+    <a href="{% url "students_add" %}">додайте</a> першого.
+</div>
 
-                        </tr>
-                <tr>
-                            <td>3</td>
-                            <td>Алісія Вікандер</td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
+{% else %}
 
-                        </tr>
-                <tr>
-                            <td>4</td>
-                            <td>Потап</td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
+<div class="alert alert-warning">
+    Зміни в журнал зберігаються автоматично при кожному кліку в клітинці
+    таблиці.
+    <span id="ajax-progress-indicator">Йде збереження...</span>
+</div>
 
-                        </tr>
-                <tr>
-                            <td>5</td>
-                            <td>Христина Соловій</td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
-                            <td><input type="checkbox" name="" value=""></td>
+<p id="journal-nav" class="text-center">
+  <a href="?month={{ prev_month }}"
+     title="Попередній Місяць">&larr;</a>
+  <!-- TODO: translate month name -->
+  <strong>{{ month_verbose }} {{ year }}</strong>
+  <a href="?month={{ next_month }}"
+     title="Наступний Місяць">&rarr;</a>
+</p>
 
-                        </tr>
+<table class="table table-hover table-striped table-bordered"
+       id="students-journal">
 
-                </tbody>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Студент</th>
+      {% for day in month_header %}
+      <th class="day-header">
+        <!-- TODO: translate day name -->
+        {{ day.verbose }}
+        <br />
+        {{ day.day }}
+      </th>
+      {% endfor %}
+    </tr>
+  </thead>
 
-            </table>
+  <tbody>
+
+    {% csrf_token %}
+
+    {% for student in students %}
+    <tr>
+
+      <td>
+        {% if is_paginated %}
+          {{ page_obj.start_index|add:forloop.counter0 }}
+        {% else %}
+          {{ forloop.counter }}
+        {% endif %}
+      </td>
+
+      <td>
+        <a title="Редагувати" target="_blank"
+           href="{% url "students_edit" student.id %}">
+          {{ student.fullname }}
+        </a>
+      </td>
+
+      {% for day in student.days %}
+      <td class="day-box">
+        <input type="checkbox" data-student-id="{{ student.id }}"
+               data-date="{{ day.date }}" data-url="{{ student.update_url }}"
+               value="1"{% if day.present %} checked="checked" {% endif %} />
+      </td>
+      {% endfor %}
+
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+{% endif %}
+
+{% with object_list=students %}
+  {% include "students/pagination.html" %}
+{% endwith %}
             <!-- End Journal -->
 {% endblock content %}

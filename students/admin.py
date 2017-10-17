@@ -38,6 +38,7 @@ class StudentAdmin(admin.ModelAdmin):
         for o in queryset:
             o.id = None
             o.save()
+
     copy_students.short_description = u'Створити копію'
 
     @staticmethod
@@ -56,6 +57,7 @@ class GroupAdmin(admin.ModelAdmin):
 
     def clean_leader(self):
         pass
+
 
 admin.site.register(Student, StudentAdmin)
 admin.site.register(Group, GroupAdmin)
