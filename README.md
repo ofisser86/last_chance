@@ -1,2 +1,4 @@
-# last_chance
-Django project
+# Another chance. Django project 
+“I have not failed. I've just found 10,000 ways that won't work.” 
+― Thomas A. Edison
+

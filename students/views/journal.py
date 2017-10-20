@@ -50,7 +50,7 @@ class JournalView(TemplateView):
         # create headers with List Comprehensions
         context['month_header'] = [{'day': d,
                                     'verbose': day_abbr[weekday(myear, mmonth, d)][:2]}
-                                   for d in range(1, number_of_days+1)]
+                                   for d in range(1, number_of_days + 1)]
 
         # context['month_header'] = [
         #     {'day': 1, 'verbose': 'Пн'},
@@ -80,7 +80,7 @@ class JournalView(TemplateView):
 
             # fill in days presence list for current student
             days = []
-            for day in range(1, number_of_days+1):
+            for day in range(1, number_of_days + 1):
                 days.append({
                     'day': day,
                     'present': journal and getattr(journal, 'present_day%d' % day, False) or False,
@@ -111,8 +111,7 @@ class JournalView(TemplateView):
         journal = MonthJournal.objects.get_or_create(student=student, date=month)[0]
 
         # set new presence on journal for given student and save result
-
         setattr(journal, 'present_day%d' % current_date.day, present)
         journal.save()
 
-        return JsonResponse({'status':'success'})
+        return JsonResponse({'status': 'success'})
