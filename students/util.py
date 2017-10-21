@@ -52,6 +52,7 @@ def get_current_group(request):
     else:
         return None
 
+
 def get_groups(request):
     """Returns list of existing groups"""
     # deferred import of Group model to avoid cycled imports
@@ -60,13 +61,13 @@ def get_groups(request):
     # get currently selected group
     cur_group = get_current_group(request)
 
-    groups =[]
+    groups = []
 
     for group in Group.objects.all().order_by('title'):
         groups.append({
             'id': group.id,
-            'title':group.title,
-            'leader':group.leader(u'%s %s' % (group.leader.first_name, group.leader.last_name)) or None,
+            'title': group.title,
+            #'leader': group.leader(u'%s %s' % (group.leader.first_name, group.leader.last_name)) or None,
             'selected': cur_group and cur_group.id == group.id and True or False
         })
 
