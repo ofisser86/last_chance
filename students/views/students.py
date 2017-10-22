@@ -231,11 +231,3 @@ def students_add(request):
     else:
         # initial form render
         return render(request, 'students/students_add.html', {'groups': groups})
-
-
-def students_edit(request, sid):
-    return HttpResponse('<h1> Student %s Editing </h1>' % sid)
-
-
-def students_delete(request, sid):
-    return HttpResponse('<h1> Student %s deleting </h1>' % sid)

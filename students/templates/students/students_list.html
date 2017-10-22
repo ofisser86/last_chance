@@ -7,53 +7,59 @@
     <a class="btn btn-primary btn-add-student" href="{% url 'students_add' %}">Додати студента</a>
     <!-- Start Students Listing -->
     <table class="table table-hover table-striped">
-    {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
-        {% url "home" as home_url %}
-        <thead>
-        <tr>
-            <th><a href="{% url 'home' %}?order_by=count{% if order_by == 'count' and reverse != '1' %}&amp;reverse=1{% endif %}">№
-                    {% if order_by == 'count' and reverse != '1' %}&uarr;
-                        {% elif order_by == 'count' and reverse == '1' %}&darr;
+        {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
+            {% url "home" as home_url %}
+            <thead>
+            <tr>
+                <th>
+                    <a href="{% url 'home' %}?order_by=count{% if order_by == 'count' and reverse != '1' %}&amp;reverse=1{% endif %}">№
+                        {% if order_by == 'count' and reverse != '1' %}&uarr;
+                            {% elif order_by == 'count' and reverse == '1' %}&darr;
 
-                    {% endif %}
-                </a>
+                        {% endif %}
+                    </a>
                 </th>
-            <th>Фото</th>
-            <th>
-                <a href="{% url 'home' %}?order_by=last_name{% if request.get_full_path == '/' or order_by == 'last_name' and reverse != '1' %}&amp;reverse=1{% endif %}">Прізвище
-                   {% if request.get_full_path == '/' or order_by == 'last_name' and reverse != '1' %}&uarr;
-                        {% elif order_by == 'last_name' and reverse == '1' %}&darr;
+                <th>Фото</th>
+                <th>
+                    <a href="{% url 'home' %}?order_by=last_name{% if request.get_full_path == '/' or order_by == 'last_name' and reverse != '1' %}&amp;reverse=1{% endif %}">Прізвище
+                        {% if request.get_full_path == '/' or order_by == 'last_name' and reverse != '1' %}&uarr;
+                            {% elif order_by == 'last_name' and reverse == '1' %}&darr;
 
-                    {% endif %}
-                </a></th>
-            <th>
-                <a href="{% url 'home' %}?order_by=first_name{% if order_by == 'first_name' and reverse != '1' %}&amp;reverse=1{% endif %}">Імя
-                    {% if order_by == 'first_name' and reverse != '1' %}&uarr;
-                        {% elif order_by == 'first_name' and reverse == '1' %}&darr;
-                    {% endif %}
-                </a></th>
-            <th>
-                <a href="{% url 'home' %}?order_by=ticket{% if order_by == 'ticket' and reverse != '1' %}&amp;reverse=1{% endif %}">№Білету
-                    {% if order_by == 'ticket' and reverse != '1' %}&uarr;
-                        {% elif order_by == 'ticket' and reverse == '1' %}&darr;
-                    {% endif %}
-                </a></th>
-            <th>Дії</th>
-        </tr>
-        </thead>
-    {% endwith %}
+                        {% endif %}
+                    </a></th>
+                <th>
+                    <a href="{% url 'home' %}?order_by=first_name{% if order_by == 'first_name' and reverse != '1' %}&amp;reverse=1{% endif %}">Імя
+                        {% if order_by == 'first_name' and reverse != '1' %}&uarr;
+                            {% elif order_by == 'first_name' and reverse == '1' %}&darr;
+                        {% endif %}
+                    </a></th>
+                <th>
+                    <a href="{% url 'home' %}?order_by=ticket{% if order_by == 'ticket' and reverse != '1' %}&amp;reverse=1{% endif %}">№Білету
+                        {% if order_by == 'ticket' and reverse != '1' %}&uarr;
+                            {% elif order_by == 'ticket' and reverse == '1' %}&darr;
+                        {% endif %}
+                    </a></th>
+                <th>Дії</th>
+            </tr>
+            </thead>
+        {% endwith %}
         <tbody>
         {% for student in students %}
             <tr>
-                <td>{{ forloop.counter }}
-{#                {% if request.get_full_path  == home_url and request.GET.order_by != 'count' and request.GET.reverse != '1' %}#}
-{##}
-{#                {{ forloop.counter }}#}
-{#                    {% elif request.GET.order_by == 'count' and request.GET.reverse == '1' %}#}
-{#                    {{ forloop.revcounter }}#}
-{#                    {% elif  request.GET.order_by == 'count' and request.GET.reverse != '1' %}#}
-{#                    {{ forloop.counter }}#}
-{#                    {% endif %}#}
+                <td>
+                    {% if is_paginated %}
+                        {{ page_obj.start_index|add:forloop.counter0 }}
+                    {% else %}
+                        {{ forloop.counter }}
+                    {% endif %}
+                    {#                {% if request.get_full_path  == home_url and request.GET.order_by != 'count' and request.GET.reverse != '1' %}#}
+                    {##}
+                    {#                {{ forloop.counter }}#}
+                    {#                    {% elif request.GET.order_by == 'count' and request.GET.reverse == '1' %}#}
+                    {#                    {{ forloop.revcounter }}#}
+                    {#                    {% elif  request.GET.order_by == 'count' and request.GET.reverse != '1' %}#}
+                    {#                    {{ forloop.counter }}#}
+                    {#                    {% endif %}#}
                 </td>
                 {% if student.photo %}
                     <td><img src="{{ student.photo.url }}" height="50px" width="50px"
@@ -76,7 +82,7 @@
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a href="{% url 'journal' student.id%}">Відвідування</a></li>
+                            <li><a href="{% url 'journal' student.id %}">Відвідування</a></li>
                             <li><a href="{% url 'students_edit' student.id %}">Редагувати</a></li>
                             <li><a href="{% url 'students_delete' student.id %}">Видалити</a></li>
                         </ul>
