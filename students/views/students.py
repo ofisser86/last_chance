@@ -20,7 +20,7 @@ from PIL import Image
 
 from ..models.students import Student
 from ..models.groups import Group
-from ..util import paginate
+from ..util import paginate, get_current_group
 
 
 class StudentUpdateForm(ModelForm):
@@ -78,7 +78,13 @@ class StudentDeleteView(DeleteView):
 
 # Students views.
 def students_list(request):
-    students = Student.objects.all().order_by('last_name')
+    # check if we need to show only one group of students
+    current_group = get_current_group(request)
+    if current_group:
+        students = Student.objects.filter(student_group=current_group)
+    else:
+        # otherwise show all students
+        students = Student.objects.all().order_by('last_name')
 
     # try to order students list
     order_by = request.GET.get('order_by', '')

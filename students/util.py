@@ -56,7 +56,7 @@ def get_current_group(request):
 def get_groups(request):
     """Returns list of existing groups"""
     # deferred import of Group model to avoid cycled imports
-    from models import  Group
+    from models import Group
 
     # get currently selected group
     cur_group = get_current_group(request)
