@@ -51,6 +51,7 @@ function initGroupSelection() {
             return true;
     });
 }
+
 function  initDateFields() {
     $('input.dateinput').datetimepicker({
         'format': 'YYYY-MM-DD'
