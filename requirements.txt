@@ -4,3 +4,4 @@ MySQL-python
 django-crispy-forms
 django-contact-form
 python-dateutil
+mysqlclient
