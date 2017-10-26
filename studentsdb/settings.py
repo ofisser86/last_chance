@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'studentsdb',
     'students',
     'crispy_forms',
+    'registration'
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+REGISTRATION_OPEN = True
