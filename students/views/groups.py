@@ -36,7 +36,11 @@ def groups_list(request):
 
 
 def groups_add(request):
-    return HttpResponse('<h1> Groups Add Form </h1>')
+    groups = Group.objects.all()
+
+    # try to order groups list
+    order_by = request.GET.get('order_by', '')
+    return render(request, 'students/groups_add.html', {'groups': groups})
 
 
 def groups_edit(request, gid):
